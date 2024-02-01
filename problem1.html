@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>calculator</title>
+    <style>
+#display{text-align: center;}
+      button{font-size: 30px;}  
+
+      #parent{display: grid;
+    grid-template-columns: repeat(4,100px);
+grid-template-rows: repeat(4,100px);
+justify-content: center;
+}
+
+.ope{background-color:yellow}
+.siva{background-color: blue;}
+    </style>
+</head>
+<body>
+
+  <h1 id="display"></h1>  
+
+<div id="parent">
+ <button class="event">1</button>
+ <button class="event">2</button>
+ <button class="event">3</button>
+ <button class="ope">+</button>
+ <button class="event">4</button>
+ <button class="event">5</button>
+ <button class="event">6</button>
+ <button class="ope">-</button>
+ <button class="event">7</button>
+ <button class="event">8</button>
+ <button class="event">9</button>
+ <button class="ope">*</button>
+ <button class="event">0</button>
+ <button class="event">.</button>
+ <button class="siva"  onclick="one()">=</button>
+ <button class="ope">/</button>
+</div>
+
+
+
+
+
+
+<script>
+let a=document.querySelectorAll("#parent>.event")
+let b=document.getElementById("display")
+let firstnumber=" "
+let secondnumber=""
+let c=document.querySelectorAll("#parent>.ope")
+let condition=true
+let e=document.querySelector('siva')
+let symbols=""
+
+
+for(let i=0;i<a.length;i++){
+   a[i].addEventListener("click",function(){
+
+    if(condition==true){
+
+        firstnumber=firstnumber+a[i].innerText
+
+b.innerText=firstnumber
+
+
+
+
+    }
+else{
+    secondnumber=secondnumber+a[i].innerText
+
+b.innerText=secondnumber
+
+
+
+}
+
+
+
+   })
+}
+
+for(let i=0;i<c.length;i++){
+
+c[i].addEventListener("click",function(){
+
+
+
+
+condition=false
+
+symbols=c[i].innerText
+
+console.log(symbols)
+})
+
+
+
+}
+
+
+function calculator(firstnumber,symbols,secondnumber){
+
+switch(symbols){
+case "+":
+    return Number(firstnumber)+Number(secondnumber)
+break;
+
+
+case "-":
+    return Number(firstnumber)-Number(secondnumber)
+break;
+
+case "*":
+    return Number(firstnumber)*Number(secondnumber)
+break;
+
+case "/":
+    return Number(firstnumber)/Number(secondnumber)
+break;
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+function one(){
+
+
+    b.innerText=calculator(firstnumber,symbols,secondnumber)
+
+
+
+}
+</script>
+
+
+
+
+
+
+
+</body>
+</html>
